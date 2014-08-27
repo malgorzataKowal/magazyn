@@ -19,24 +19,32 @@
 		<br>
 				Kategoria: <form:input path="kategoria" />
 		<br>
+                 
 		<input type="submit" value="Dodaj" />
 
 	</form:form>
-
+            
+                <table>
+                    <td><input type="text" value="text"> </td>
+                    <input type="submit" value="Filtruj Kategorie"/>
+                </table>      
 	<table>
 		<tr>
 			<td>Id</td>
-			<td>Nazwa</td>
+                        <td><a href="magazyn?id=nazwa&action=sort">Nazwa</a></td>
+			
 			<td>Opis</td>
-			<td>Cena</td>
+			<td><a href="magazyn?id=cena&action=sort">Cena</a></td>
+                      
 			<td>Ilosc</td>
-			<td>Kategoria</td>
-			<td>Usu&#324;</td>
-			<td>Zmie&#324;</td>
+			<td><a href="magazyn?id=kategoria&action=sort"/>Kategoria</a></td>
+			
+                        
 		</tr>
 		<c:forEach var="towar" items="${magazyn}">
 			<tr>
-				<td><c:out value="${towar.id+1}" /></td>
+			<td>
+                       <c:out value="${towar.id+1}" />
 				<td><c:out value="${towar.nazwa}" /></td>
 				<td><c:out value="${towar.opis}" /></td>
 				<td><c:out value="${towar.cena}" /></td>

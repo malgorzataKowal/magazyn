@@ -64,4 +64,36 @@ public class MagazynDaoDerby implements MagazynDao {
 		return towary;
 	}
 
+       
+    @Override
+    public List<Towar> getSortedByKategory(String s) {
+   
+         String sql = "select * FROM towary ORDER BY cena desc";
+         String sql2 = "select * FROM towary ORDER BY kategoria";
+         String sql3 = "select * FROM towary ORDER BY nazwa";
+    
+   
+    List<Towar> towary = new ArrayList<Towar>();
+    
+         if (s.equals("kategoria")) {
+            
+          towary = jdbcTemplate.query(sql2, new TowarMapper());
+            
+                
+        }else if(s.equals("nazwa")){
+       
+         towary =jdbcTemplate.query(sql3, new TowarMapper());
+        
+        } else if(s.equals("cena")){
+             
+         towary= jdbcTemplate.query(sql, new TowarMapper());
+               
+      }    
+  
+     
+		return towary; 
+    }
+
+
+
 }

@@ -14,5 +14,9 @@ public interface MagazynDao {
 	public void removeTowar(long id);
 
 	public List<Towar> getAllSortedTowar(int atrybut, String s);
+        
+        public List<Towar>getSortedByKategory(String s );
+        
+     
 
 }

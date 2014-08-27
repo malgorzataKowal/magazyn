@@ -8,17 +8,20 @@ import org.springframework.stereotype.Repository;
 import pl.altkom.magazyn.model.Towar;
 
 public class MagazynDaoMemory implements MagazynDao {
-
+ // tutaj tworzymy liste towarow 
+    
 	private List<Towar> dane;
-		
+//konstruktor	
 	public MagazynDaoMemory() {
 		dane = new ArrayList();
 	}
-
+//metoda zaimplementowana z interfejsu DAO
 	@Override
 	public synchronized void addTowar(Towar t) {
-		// TODO Auto-generated method stub
+// tmp jest obiektem klasy Towar
 		Towar tmp = null;
+//warunek jezeli dane czyli w tym przypadku lista towarow nie jest pusta towar jest przypisany do 
+// do listy towarow                 
 		if (dane.size() != 0) {
 			tmp = dane.get(dane.size()-1);
 			t.setId(tmp.getId()+1);
@@ -51,5 +54,14 @@ public class MagazynDaoMemory implements MagazynDao {
 		// TODO Auto-generated method stub
 		return dane;
 	}
+ 
+
+    
+
+    @Override
+    public List<Towar> getSortedByKategory(String s) {
+         return dane;
+    }
+
 
 }
