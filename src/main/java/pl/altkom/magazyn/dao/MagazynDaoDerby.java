@@ -84,14 +84,31 @@ public class MagazynDaoDerby implements MagazynDao {
        
          towary =jdbcTemplate.query(sql3, new TowarMapper());
         
-        } else if(s.equals("cena")){
-             
-         towary= jdbcTemplate.query(sql, new TowarMapper());
-               
+       } else if(s.equals("cena")){
+            
+        towary= jdbcTemplate.query(sql, new TowarMapper());
+              
       }    
   
      
 		return towary; 
+    }
+
+    @Override
+    public List<Towar> getFiltr(String s) {
+        
+       String sql = "select * FROM towary WHERE Kategoria=?";
+       
+       List<Towar> towary = new ArrayList<Towar>();
+        if (s.equals("bbbb")) {
+            
+          towary = jdbcTemplate.query(sql, new TowarMapper(),"bbbb");
+         }
+       else if(s.equals("kategoria")){
+        
+            towary = jdbcTemplate.query(sql, new TowarMapper(),"eeee");
+        }
+       return towary;
     }
 
 

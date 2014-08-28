@@ -17,6 +17,6 @@ public interface MagazynDao {
         
         public List<Towar>getSortedByKategory(String s );
         
-     
+        public List<Towar>getFiltr(String s);
 
 }

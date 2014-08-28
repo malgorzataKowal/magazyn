@@ -24,9 +24,11 @@ public class MagazynController {
     public String magazyn(Locale locale, Model model, HttpServletRequest request) {
         boolean zmiana = false;
         int id = 0;
-     
-    if(zmiana==false) model.addAttribute("magazyn", md.getAllSortedTowar(0, ""));
- 
+
+        if (zmiana == false) {
+            model.addAttribute("magazyn", md.getAllSortedTowar(0, ""));
+        }
+
         if ((request.getParameter("id") != null)
                 && (request.getParameter("action") != null)) {
             if (request.getParameter("action").equals("delete")) {
@@ -37,16 +39,27 @@ public class MagazynController {
                 id = Integer.parseInt(request.getParameter("id"));
                 model.addAttribute("towar", md.getTowar(id));
             }
-           
-          if (request.getParameter("action").equals("sort")) {
-                zmiana = true;
-             
-             model.addAttribute("magazyn", md.getSortedByKategory((request.getParameter("id"))));
-          } else {
-        }
 
-        }   
-      model.addAttribute(new Towar());
+            if (request.getParameter("action").equals("text")) {
+                zmiana = true;
+
+                model.addAttribute("magazyn", md.getFiltr((request.getParameter("id"))));
+
+            }
+
+        }
+//        
+        if (request.getParameter("action") != null && request.getParameter("action").equals("sort")) {
+            System.out.println("2");
+            zmiana = true;
+
+            model.addAttribute("magazyn", md.getSortedByKategory((request.getParameter("sortBy"))));
+        }
+//          } else {
+//            
+//        }
+
+        model.addAttribute(new Towar());
         return "magazyn";
     }
 
@@ -56,6 +69,7 @@ public class MagazynController {
 
         md.addTowar(towar);
         model.addAttribute("magazyn", md.getAllSortedTowar(0, ""));
+
         model.addAttribute(new Towar());
         return "magazyn";
     }

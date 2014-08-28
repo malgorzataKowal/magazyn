@@ -63,5 +63,11 @@ public class MagazynDaoMemory implements MagazynDao {
          return dane;
     }
 
+    @Override
+    public List<Towar> getFiltr(String s) {
+   
+        return dane;
+    }
+
 
 }
