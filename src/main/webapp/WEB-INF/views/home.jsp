@@ -8,18 +8,21 @@
        
 </head>
 <body>
-<div id="welcome">
-    
-      <div class="box"></div>
-	<div id="napis">Witamy w magazynie</div> 
+<div class="container"> 
+    <div id="header">
         
-      
-      
+         <p><a href="<c:url value="/magazyn" />" ></p>Dodaj Towar</a></div>
+    
+<div id="welcome">
+     <div id="link_Magazyn"><p> Witaj w magazynie jbdvbxfhbvf  ndvkjnkvnd jdvjkdjnv vnjdnvjd vnjdnvj</p> 
+         
+
+    
+</div>
 </div>
 
-<P>  The time on the server is ${serverTime}. </P>
-
-    <div id="header"><a href="<c:url value="/magazyn" />" >Dodaj Towar</a></div>
+</div>
+   
 
 </body>
 </html>
