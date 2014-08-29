@@ -40,24 +40,30 @@ public class MagazynController {
                 model.addAttribute("towar", md.getTowar(id));
             }
 
-            if (request.getParameter("action").equals("text")) {
-                zmiana = true;
+        }
 
-                model.addAttribute("magazyn", md.getFiltr((request.getParameter("id"))));
+        if (request.getParameter("text") != null) {
+            zmiana = true;
+            if (request.getParameter("filtr").equals("kategoria")) {
 
+                model.addAttribute("magazyn", md.getFiltrByCategory((request.getParameter("text"))));
+            }
+            if (request.getParameter("filtr").equals("nazwa")) {
+
+                model.addAttribute("magazyn", md.getFiltrByNazwa((request.getParameter("text"))));
+            }
+            if (request.getParameter("filtr").equals("cena")) {
+
+                model.addAttribute("magazyn", md.getFiltrByCena((request.getParameter("text"))));
             }
 
         }
-//        
         if (request.getParameter("action") != null && request.getParameter("action").equals("sort")) {
             System.out.println("2");
             zmiana = true;
 
             model.addAttribute("magazyn", md.getSortedByKategory((request.getParameter("sortBy"))));
         }
-//          } else {
-//            
-//        }
 
         model.addAttribute(new Towar());
         return "magazyn";

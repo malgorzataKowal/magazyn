@@ -13,104 +13,133 @@ import pl.altkom.magazyn.model.Towar;
 @Repository
 public class MagazynDaoDerby implements MagazynDao {
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-	@Override
-	public void addTowar(Towar t) {
-		// TODO Auto-generated method stub
+    @Override
+    public void addTowar(Towar t) {
+        // TODO Auto-generated method stub
 
-		try {
-			String sql = "INSERT INTO towary(nazwa,opis,cena,ilosc,kategoria) values(?,?,?,?,?)";
-			// String sql1 =
-			// "select id FROM towary order by id desc FETCH FIRST ROW ONLY;";
+        try {
+            String sql = "INSERT INTO towary(nazwa,opis,cena,ilosc,kategoria) values(?,?,?,?,?)";
 
-			// jdbcTemplate.execute(sql1);
-			jdbcTemplate.update(sql, new Object[] { t.getNazwa(), t.getOpis(),
-					t.getCena(), t.getIlosc(), t.getKategoria() });
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
+            jdbcTemplate.update(sql, new Object[]{t.getNazwa(), t.getOpis(),
+                t.getCena(), t.getIlosc(), t.getKategoria()});
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
 
-	}
+    }
 
-	@Override
-	public void updateTowar(Towar t) {
-		String SQL = "update towary set nazwa = ?, opis = ?, cena = ?, ilosc = ?, kategoria = ? where id = ?";
-		jdbcTemplate.update(SQL, t.getNazwa(), t.getOpis(), t.getCena(),
-				t.getIlosc(), t.getKategoria(), t.getId());
-		return;
-	}
+    @Override
+    public void updateTowar(Towar t) {
+        String SQL = "update towary set nazwa = ?, opis = ?, cena = ?, ilosc = ?, kategoria = ? where id = ?";
+        jdbcTemplate.update(SQL, t.getNazwa(), t.getOpis(), t.getCena(),
+                t.getIlosc(), t.getKategoria(), t.getId());
+        return;
+    }
 
-	@Override
-	public Towar getTowar(long id) {
-		String SQL = "select * from towary where id = ?";
-		Towar towar = jdbcTemplate.queryForObject(SQL, new Object[] { id },
-				new TowarMapper());
-		return towar;
-	}
+    @Override
+    public Towar getTowar(long id) {
+        String SQL = "select * from towary where id = ?";
+        Towar towar = jdbcTemplate.queryForObject(SQL, new Object[]{id},
+                new TowarMapper());
+        return towar;
+    }
 
-	@Override
-	public void removeTowar(long id) {
-		String SQL = "delete from towary where id = ?";
-		jdbcTemplate.update(SQL, id);
-	}
+    @Override
+    public void removeTowar(long id) {
+        String SQL = "delete from towary where id = ?";
+        jdbcTemplate.update(SQL, id);
+    }
 
-	@Override
-	public List<Towar> getAllSortedTowar(int atrybut, String s) {
-		String sql = "select * FROM towary";
-		List<Towar> towary = jdbcTemplate.query(sql, new TowarMapper());
-		return towary;
-	}
+    @Override
+    public List<Towar> getAllSortedTowar(int atrybut, String s) {
+        String sql = "select * FROM towary";
+        List<Towar> towary = jdbcTemplate.query(sql, new TowarMapper());
+        return towary;
+    }
 
-       
     @Override
     public List<Towar> getSortedByKategory(String s) {
-   
-         String sql = "select * FROM towary ORDER BY cena desc";
-         String sql2 = "select * FROM towary ORDER BY kategoria";
-         String sql3 = "select * FROM towary ORDER BY nazwa";
-    
-   
-    List<Towar> towary = new ArrayList<Towar>();
-    
-         if (s.equals("kategoria")) {
-            
-          towary = jdbcTemplate.query(sql2, new TowarMapper());
-            
-                
-        }else if(s.equals("nazwa")){
-       
-         towary =jdbcTemplate.query(sql3, new TowarMapper());
-        
-       } else if(s.equals("cena")){
-            
-        towary= jdbcTemplate.query(sql, new TowarMapper());
-              
-      }    
-  
-     
-		return towary; 
+
+        String sql = "select * FROM towary ORDER BY cena desc";
+        String sql2 = "select * FROM towary ORDER BY kategoria";
+        String sql3 = "select * FROM towary ORDER BY nazwa";
+
+        List<Towar> towary = new ArrayList<Towar>();
+
+        if (s.equals("kategoria")) {
+
+            towary = jdbcTemplate.query(sql2, new TowarMapper());
+
+        } else if (s.equals("nazwa")) {
+
+            towary = jdbcTemplate.query(sql3, new TowarMapper());
+
+        } else if (s.equals("cena")) {
+
+            towary = jdbcTemplate.query(sql, new TowarMapper());
+
+        }
+
+        return towary;
     }
 
     @Override
-    public List<Towar> getFiltr(String s) {
-        
-       String sql = "select * FROM towary WHERE Kategoria=?";
-       
-       List<Towar> towary = new ArrayList<Towar>();
-        if (s.equals("bbbb")) {
-            
-          towary = jdbcTemplate.query(sql, new TowarMapper(),"bbbb");
-         }
-       else if(s.equals("kategoria")){
-        
-            towary = jdbcTemplate.query(sql, new TowarMapper(),"eeee");
+    public List<Towar> getFiltrByCategory(String s) {
+
+        String sql = "select * FROM towary WHERE Kategoria=?";
+        String sql2 = "SELECT * FROM towary";
+
+        List<Towar> towary = new ArrayList<Towar>();
+        if (s != null) {
+
+            towary = jdbcTemplate.query(sql, new TowarMapper(), s);
+        } else {
+            towary = jdbcTemplate.query(sql2, new TowarMapper());
+
         }
-       return towary;
+
+        return towary;
+
     }
 
+    @Override
+    public List<Towar> getFiltrByNazwa(String s) {
 
+        String sql = "select * FROM towary WHERE Nazwa=?";
+        String sql2 = "SELECT * FROM towary";
+
+        List<Towar> towary = new ArrayList<Towar>();
+        if (s != null) {
+
+            towary = jdbcTemplate.query(sql, new TowarMapper(), s);
+        } else {
+            towary = jdbcTemplate.query(sql2, new TowarMapper());
+
+        }
+
+        return towary;
+    }
+
+    @Override
+    public List<Towar> getFiltrByCena(String s) {
+        String sql = "select * FROM towary WHERE Cena=?";
+        String sql2 = "SELECT * FROM towary";
+
+        List<Towar> towary = new ArrayList<Towar>();
+        if (s != null) {
+
+            towary = jdbcTemplate.query(sql, new TowarMapper(), s);
+        } else {
+            towary = jdbcTemplate.query(sql2, new TowarMapper());
+
+        }
+
+        return towary;
+
+    }
 
 }
