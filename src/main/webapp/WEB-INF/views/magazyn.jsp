@@ -4,20 +4,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Insert title here</title>
-        <link rel="stylesheet" type="text/css" href="magazyn.css">
+        <link href="${pageContext.request.contextPath}/resources/css/magazyn.css" rel="stylesheet" >
+       
     </head>
     <body>
 
         <form:form modelAttribute="towar">
             Nazwa: <form:input path="nazwa" />
+           <form:errors path="nazwa" cssClass="error" />
             <br>
             Opis: <form:input path="opis" />
+           <form:errors path="opis" cssClass="error" /> 
             <br>
             Cena: <form:input path="cena" />
+           <form:errors path="cena" cssClass="error" />
             <br>
             Ilosc: <form:input path="ilosc" />
+            <form:errors path="ilosc" cssClass="error" />
             <br>
             Kategoria: <form:input path="kategoria" />
+             <form:errors path="kategoria" cssClass="error" />
             <br>
 
             <input type="submit" value="Dodaj" />

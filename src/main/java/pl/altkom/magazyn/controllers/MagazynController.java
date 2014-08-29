@@ -3,10 +3,12 @@ package pl.altkom.magazyn.controllers;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,8 +72,12 @@ public class MagazynController {
     }
 
     @RequestMapping(value = "/magazyn", method = RequestMethod.POST)
-    public String magazynDodaj(Locale locale, @ModelAttribute Towar towar,
+    public String magazynDodaj(@Valid Towar towar, BindingResult result,
             Model model) {
+
+        if (result.hasErrors()) {
+            return "magazyn";
+        } 
 
         md.addTowar(towar);
         model.addAttribute("magazyn", md.getAllSortedTowar(0, ""));

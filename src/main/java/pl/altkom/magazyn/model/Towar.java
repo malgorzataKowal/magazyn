@@ -1,14 +1,24 @@
 package pl.altkom.magazyn.model;
 
 import java.io.Serializable;
+import javax.validation.constraints.Min;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class Towar implements Serializable {
 
 	private long id;
+        @NotEmpty(message = "Nazwa produktu jest wymagana")
+        @Length(max = 20)
 	private String nazwa;
-	private String opis;
+        @NotEmpty(message = "Opis produktu jest wymagany")
+        @Length(max = 20)
+        private String opis;
+        @Min(value=0)
 	private double cena;
+        @Min(value=0)
 	private int ilosc;
+        @NotEmpty (message = "Kategoria jest wymagana")
 	private String kategoria;
 
 	public Towar(long id, String nazwa, String opis, double cena, int ilosc,
@@ -31,7 +41,7 @@ public class Towar implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+       
 	public String getNazwa() {
 		return nazwa;
 	}
@@ -39,7 +49,7 @@ public class Towar implements Serializable {
 	public void setNazwa(String nazwa) {
 		this.nazwa = nazwa;
 	}
-
+       
 	public String getOpis() {
 		return opis;
 	}
@@ -47,7 +57,7 @@ public class Towar implements Serializable {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-
+      
 	public double getCena() {
 		return cena;
 	}
@@ -55,7 +65,7 @@ public class Towar implements Serializable {
 	public void setCena(double cena) {
 		this.cena = cena;
 	}
-
+       
 	public int getIlosc() {
 		return ilosc;
 	}
@@ -63,7 +73,7 @@ public class Towar implements Serializable {
 	public void setIlosc(int ilosc) {
 		this.ilosc = ilosc;
 	}
-
+      
 	public String getKategoria() {
 		return kategoria;
 	}
