@@ -1,62 +1,63 @@
-           body{
-               padding:0px;
-               margin:0px;
-               //background-color: blue;
-           }
-            h1{
-                color:blue;
-            }
-            #welcome{
-/*                margin-top: 200px;*/
-                height:550px;
-                width:100%;
-                border: 1px solid black;
-                background-image:url('books.jpg');
-                background-size: 100% 500px;
-            }
-            #welcome p{
-                //font-size:20px; 
-          width:300px;
-          height:160px;
-          margin-left:40px;
-          margin-top:110px;
-          text-shadow:1px -6px 2px rgba(255,255,0,0.1);
-          font-weight:normal;color:#000000;
-          letter-spacing:-2pt;
-         word-spacing:6pt;font-size:27px;
-         text-align:center;font-family:courier new, courier, monospace;
-         line-height:1;       
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-            }
-        
-            #header a{
-                text-decoration: none;
-                color: white;
-                
-            }
-            .container{
-                width:100%;
-                height:100%;
-            }
-            #header{
-               width:100%;
-               height:200px;
-               background-image: url('grey.jpg');
-                
-            }
+body{
+ padding:0px;
+ margin:0px;
+ background-color: #E5E5E5;
+}
+h1{
+ color:blue;
+}
+#welcome{
+ height:60%;
+ width:85%;
+ background-image:url('bookBackground.jpg');
+ background-size: 100% 100%;
+ margin:0px auto;
+}
+#magazyn_napis{
+ width:20%;
+ height:10%;
+ margin-left:624px;
+ text-shadow:1px -6px 2px rgba(255,255,0,0.1);
+ font-weight:normal;color:#000000;
+ letter-spacing:2pt;
+ word-spacing:6pt;font-size:22px;
+ text-align:center;
+ font-family:courier new, courier, monospace;
+ line-height:2;       
+ margin-top:180px;
+ position:absolute;
+ font-family: ABeeZee; 
+ color: WHITE;
+ font-size: 22px;
+ text-shadow:0px 0px 0 rgb(129,129,129), 1px 0px 0 rgb(65,65,65),2px 0px 1px rgba(0,0,0,0.6),2px 0px 1px rgba(0,0,0,0.5),0px 0px 1px rgba(0,0,0,.2);
+}
+.container{
+ width:100%;
+ height:100%;
+}
+#header{
+ width:100%;
+ height:200px;
+ background-color: #2D2D2D;
+ margin-bottom: 10px;
+}
+#link_Magazyn a{
+ width:20%;
+ height:10%;
+ //border:1px solid white;
+ margin-left:40%;
+ position:absolute;
+ margin-top:50px;
+ text-align: center;
+ text-decoration:none;
+ color:white;
+ background-color:#777; 
+ opacity:0.65;
+}
+#link_Magazyn a:hover{
+ opacity:0.85;
+}
+#link_Magazyn p{
+ text-align: center;
+ font-size:30px;
+}

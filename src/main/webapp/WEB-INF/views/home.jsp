@@ -11,14 +11,12 @@
 <div class="container"> 
     <div id="header">
         
-         <p><a href="<c:url value="/magazyn" />" ></p>Dodaj Towar</a></div>
+         <div id="link_Magazyn"><a href="<c:url value="/magazyn" />" ><p>Przejdz do Magazynu</p></a></div>
+         
+     </div>
     
 <div id="welcome">
-     <div id="link_Magazyn"><p> Witaj w magazynie jbdvbxfhbvf  ndvkjnkvnd jdvjkdjnv vnjdnvjd vnjdnvj</p> 
-         
-
-    
-</div>
+    <div id="magazyn_napis" > Witaj w magazynie ksiazek<br/>Wybierz ksiazke<br/> dla siebie</div>
 </div>
 
 </div>
