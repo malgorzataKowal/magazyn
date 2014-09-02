@@ -9,10 +9,10 @@ public class Towar implements Serializable {
 
 	private long id;
         @NotEmpty(message = "Nazwa produktu jest wymagana")
-        @Length(max = 20)
+        @Length(max = 40)
 	private String nazwa;
         @NotEmpty(message = "Opis produktu jest wymagany")
-        @Length(max = 20)
+        @Length(max = 80)
         private String opis;
         @Min(value=0)
 	private double cena;

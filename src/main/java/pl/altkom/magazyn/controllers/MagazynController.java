@@ -60,9 +60,9 @@ public class MagazynController {
             }
 
         }
-        
+
         if (request.getParameter("action") != null && request.getParameter("action").equals("sort")) {
-            System.out.println("2");
+
             zmiana = true;
 
             model.addAttribute("magazyn", md.getSortedByKategory((request.getParameter("sortBy"))));
@@ -78,7 +78,7 @@ public class MagazynController {
 
         if (result.hasErrors()) {
             return "magazyn";
-        } 
+        }
 
         md.addTowar(towar);
         model.addAttribute("magazyn", md.getAllSortedTowar(0, ""));

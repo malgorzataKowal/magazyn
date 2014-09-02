@@ -45,7 +45,7 @@
             <div id="filtr">
                 <form action="magazyn" method="get">
 
-                    <div class="radio"><input type="radio" name="filtr" value="kategoria" />kategoria</br></div>
+                    <div class="radio"><input type="radio" name="filtr" value="kategoria" checked="true" />kategoria</br></div>
                     <div class="radio"><input type="radio" name="filtr" value="nazwa"/>nazwa</br></div>
                     <div class="radio"><input type="radio" name="filtr" value="cena"/>cena</br></div>
                     <div id="filtr_input"><input type="text" name="text"/>
@@ -56,7 +56,7 @@
             </div>    
             <table id="results">
                 <tr>
-                    <td>Id</td>
+                    <td>id</td>
                     <td><a href="magazyn?sortBy=nazwa&action=sort">Nazwa</a></td>
 
                     <td>Opis</td>

@@ -64,7 +64,7 @@ public class MagazynDaoDerby implements MagazynDao {
     @Override
     public List<Towar> getSortedByKategory(String s) {
 
-        String sql = "select * FROM towary ORDER BY cena desc";
+        String sql = "select * FROM towary ORDER BY cena asc";
         String sql2 = "select * FROM towary ORDER BY kategoria";
         String sql3 = "select * FROM towary ORDER BY nazwa";
 
