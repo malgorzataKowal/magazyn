@@ -1,0 +1,44 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+#container{
+    width:80%;
+    height:100%;
+    margin:0px auto;
+    border:1px solid black;
+    background-color: #2D2D2D;
+}
+#form{
+     font-family: verdana,arial,sans-serif;
+     font-size:16px;
+     margin-left:300px;
+     float:left;
+     height:300px;
+     width:400px;
+     margin-bottom:30px;
+     margin-top:150px;
+     background-color: #e6b23a;
+}      
+#form tr{
+	
+	border-width: 1px;
+	padding: 18px;
+	border-style: solid;
+        font-size:12px;
+        width:10px;
+        height:10px;
+}   
+
+#form td{
+	
+         padding: .8em; 
+         color: #F6ECF0; 
+	 border-width: 1px;
+	 padding: 18px;
+          color:black;
+}
+#form input{
+    
+    padding:5px;
+}

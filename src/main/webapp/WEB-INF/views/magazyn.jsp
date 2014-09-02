@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Insert title here</title>
         <link href="${pageContext.request.contextPath}/resources/css/formularz.css" rel="stylesheet" >
-
+        
     </head>
     <body>
         <div class="container">
@@ -13,39 +13,39 @@
 
                 <form:form modelAttribute="towar">
                     <tr>
-                        <td>Nazwa: <form:input path="nazwa" /></td>
-                        <form:errors path="nazwa" cssClass="error" />
+                        <th>Tytul: <form:input path="nazwa" /></th>
+                        <th><form:errors path="nazwa" cssClass="error" /></th>
                     
                     </tr> 
                     <tr>    
-                        <td> Opis: <form:input path="opis" /></td>
-                        <form:errors path="opis" cssClass="error" />
+                        <th> Opis: <form:input path="opis" /></th>
+                        <th><form:errors path="opis" cssClass="error" /></th>
                    
                     </tr>  
                     <tr>    
-                        <td>Cena: <form:input path="cena" /></td>
-                        <form:errors path="cena" cssClass="error" />
+                        <th>Cena: <form:input path="cena" /></th>
+                        <th><form:errors path="cena" cssClass="error" /></th>
                     
                     </tr> 
                     <tr>    
-                        <td>Ilosc: <form:input path="ilosc" /></td>
-                        <form:errors path="ilosc" cssClass="error" />
+                        <th>Ilosc: <form:input path="ilosc" /></th>
+                        <th><form:errors path="ilosc" cssClass="error" /></th>
                  
                     </tr> 
                     <tr>    
-                        <td>Kategoria: <form:input path="kategoria" /></td>
-                        <form:errors path="kategoria" cssClass="error" />
+                        <th>Kategoria: <form:input path="kategoria" /></th>
+                        <th><form:errors path="kategoria" cssClass="error" /></th>
                  
                     </tr>
                     <tr>
-                        <td><input type="submit" value="Dodaj" /> </td>
+                        <th><input type="submit" value="Dodaj" /></th>
                     </tr>
                 </form:form>
             </table>
             <div id="filtr">
                 <form action="magazyn" method="get">
 
-                    <div class="radio"><input type="radio" name="filtr" value="kategoria"/>kategoria</br></div>
+                    <div class="radio"><input type="radio" name="filtr" value="kategoria" />kategoria</br></div>
                     <div class="radio"><input type="radio" name="filtr" value="nazwa"/>nazwa</br></div>
                     <div class="radio"><input type="radio" name="filtr" value="cena"/>cena</br></div>
                     <div id="filtr_input"><input type="text" name="text"/>

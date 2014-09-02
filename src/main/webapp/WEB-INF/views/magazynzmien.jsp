@@ -3,23 +3,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="${pageContext.request.contextPath}/resources/css/zmien.css" rel="stylesheet" >
 <title>Insert title here</title>
 </head>
 <body>
-
+<div id="container">    
+<table id="form">
 	<form:form modelAttribute="towar">
-		Nazwa: <form:input path="nazwa" />
+            <tr>
+		<td>Nazwa: <form:input path="nazwa" /></td>
+		
+            </tr>  
+            <tr>
+		<td>Opis: <form:input path="opis" /></td>
+		
+            </tr>  
+            <tr>
+				<td>Cena: <form:input path="cena" /></td>
+	     </tr>
+             <tr>
+				<td>Ilosc: <form:input path="ilosc" /></td>
+	     </tr>
+		<tr>		
+                    <td>Kategoria: <form:input path="kategoria" /></td>
+                </tr>    
 		<br>
-		Opis: <form:input path="opis" />
-		<br>
-				Cena: <form:input path="cena" />
-		<br>
-				Ilosc: <form:input path="ilosc" />
-		<br>
-				Kategoria: <form:input path="kategoria" />
-		<br>
-		<input type="submit" value="Dodaj" />
+		<td><input type="submit" value="Dodaj" /></td>
 		<form:hidden path="id"/>
 	</form:form>
+             
+</table> 
+     </div>  
 </body>
 </html>

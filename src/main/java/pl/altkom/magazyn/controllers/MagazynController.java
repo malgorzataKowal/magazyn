@@ -60,6 +60,7 @@ public class MagazynController {
             }
 
         }
+        
         if (request.getParameter("action") != null && request.getParameter("action").equals("sort")) {
             System.out.println("2");
             zmiana = true;
